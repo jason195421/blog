@@ -2,20 +2,67 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>My Static Blog</title>
-    <!-- 引入仓库里的 Sakura 主题样式 -->
+    <title>Jason's Blog</title>
+    <!-- 引入原主题的样式文件 -->
     <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="./cdn/css/bootstrap.min.css">
+    <!-- 如果你的主题有额外的 CSS，记得在这里引入 -->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        /* 简单的样式修正，防止因为没有 PHP 函数而错乱 */
+        body { font-family: 'Ubuntu', sans-serif; background: #f7f9fa; }
+        .notice { background: #fff; padding: 10px; border-radius: 5px; margin-bottom: 20px; }
+        .main-title { text-align: center; margin: 40px 0; }
+        .post-item { background: #fff; padding: 20px; margin-bottom: 20px; border-radius: 5px; }
+        .navigator { text-align: center; padding: 20px; }
+    </style>
 </head>
 <body class="home blog">
-    <div id="main">
-        <h1 style="text-align:center; padding-top: 50px;">欢迎来到我的空间</h1>
-        <p style="text-align:center;">这是原本的 </p>
-        
-        
-        <div class="container">
-            <p>这里是文章内容区域...</p>
-        </div>
+
+    <!-- 1. 头部 Header (原 get_header() 生成的内容) -->
+    <header>
+        <!-- 这里放你的导航栏代码，可以从原主题的 header.php 里抠出来 -->
+        <h1 style="text-align:center; padding: 20px;">Welcome to My Blog</h1>
+    </header>
+
+    <!-- 2. 公告栏 (原 PHP 逻辑：如果后台开了公告就显示) -->
+    <!-- 既然是静态页，我们直接写死显示 -->
+    <div class="notice">
+       <i class="fa fa-bullhorn"></i>
+       <div class="notice-content">🎉 欢迎访问我的静态博客！这里记录我的学习笔记和生活点滴。</div>
     </div>
+
+    <!-- 3. 文章列表 (原 PHP 逻辑：while ( have_posts() )) -->
+    <div id="primary">
+        <main id="main">
+            <h1 class="main-title"><i class="fa fa-envira"></i> Discovery</h1>
+
+            <!-- 文章卡片 1 -->
+            <article class="post-item">
+                <h2><a href="#">这是一篇静态文章标题</a></h2>
+                <p>这是文章摘要。由于 GitHub Pages 不支持 PHP，这里无法显示真实的文章列表，你需要手动编写 HTML 内容。</p>
+                <span>发布于 2026-01-01</span>
+            </article>
+
+            <!-- 文章卡片 2 -->
+            <article class="post-item">
+                <h2><a href="#">关于我</a></h2>
+                <p>我是 Jason，一名热爱折腾的技术爱好者。这是用 Sakura 主题魔改的静态页面。</p>
+                <span>发布于 2026-01-02</span>
+            </article>
+
+        </main>
+
+        <!-- 4. 分页 (原 PHP 逻辑：previous_posts_link) -->
+        <nav class="navigator">
+            <a href="#"><i class="fa fa-arrow-left"></i></a>
+            <a href="#"><i class="fa fa-arrow-right"></i></a>
+        </nav>
+    </div>
+
+    <!-- 5. 底部 Footer (原 get_footer() 生成的内容) -->
+    <footer style="text-align:center; padding: 20px; color: #888;">
+        <p>© 2026 Jason's Blog | Powered by GitHub Pages</p>
+    </footer>
+
 </body>
 </html>
